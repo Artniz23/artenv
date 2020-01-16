@@ -2,7 +2,7 @@
   "name": "artniz/artenv",
   "description": "Loads environment variables from `.env` to `getenv()`.",
   "keywords": ["env", "environment"],
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "authors": [
     {
       "name": "Artem Nizelsky",

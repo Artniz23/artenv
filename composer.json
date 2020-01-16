@@ -1,0 +1,17 @@
+{
+  "name": "artniz/artenv",
+  "description": "Loads environment variables from `.env` to `getenv()`.",
+  "keywords": ["env", "environment"],
+  "license": "",
+  "authors": [
+    {
+      "name": "Artem Nizelsky",
+      "email": "anizelskij@mail.ru"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Artenv\\": "src/"
+    }
+  }
+}

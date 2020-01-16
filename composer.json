@@ -9,6 +9,7 @@
       "email": "anizelskij@mail.ru"
     }
   ],
+  "minimum-stability": "stable",
   "require": {
     "php": ">=5.5.9"
   },

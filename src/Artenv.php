@@ -6,6 +6,7 @@ use Artenv\Store\StoreBuilder;
 use Artenv\Loader\Loader;
 use Artenv\Loader\LoaderInterface;
 use Artenv\Store\FileStore;
+use Artenv\Scanner\ScannerEnv;
 
 class Artenv
 {
@@ -18,16 +19,22 @@ class Artenv
         $this->loader = $loader;
     }
 
-    public static function createInstance($paths, $names = null)
+    public static function createInstance($paths = null, $names = null)
     {
-        $store = StoreBuilder::create($paths, $names)->make();
+
+        if ($paths == null) {
+            $dir = $_SERVER['DOCUMENT_ROOT'];
+            $store = ScannerEnv::scanDir($dir)->scanEnv();
+        } else {
+            $store = StoreBuilder::create($paths, $names)->make();
+        }
 
         return new self(new Loader(), $store);
     }
 
     public function load()
     {
-        return $this->loader->load($this->store->read());
+        $this->loader->load($this->store->read());
     }
 
     public static function getEnv($name = null)

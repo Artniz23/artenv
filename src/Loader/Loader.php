@@ -11,7 +11,7 @@ class Loader implements LoaderInterface
 {
     public function load($content)
     {
-        return $this->processEntries(Lines::process(Arrays::split($content)));
+        $this->processEntries(Lines::process(Arrays::split($content)));
     }
 
     public function processEntries(array $entries)

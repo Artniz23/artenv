@@ -16,9 +16,11 @@ class Loader implements LoaderInterface
 
     public function processEntries(array $entries)
     {
-        foreach ($entries as $entry) {
-            list($name, $value) = Parser::parse($entry);
-            $this->setEnv($name, $value);
+        if (!empty($entries)) {
+            foreach ($entries as $entry) {
+                list($name, $value) = Parser::parse($entry);
+                $this->setEnv($name, $value);
+            }
         }
     }
 

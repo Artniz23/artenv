@@ -7,31 +7,29 @@ use Artenv\Loader\Arrays;
 
 class ScannerEnv
 {
-    private $files;
+    /**
+     * Scans all folders in the home directory recursively
+     * and find all enviroment files.
+     *
+     * @param string      $loader
+     * @param string[]    $store
+     *
+     * @return array <string>
+     */
 
-    public function __construct(array $results)
-    {
-        $this->files = $results;
-    }
-
-    public static function scanDir($dir, &$results = array())
+    public static function scanEnv($dir, &$results = array())
     {
         $files = scandir($dir);
         foreach($files as $key => $value){
             $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
             if(!is_dir($path)) {
                 $results[] = $path;
-            } else if($value != "." && $value != "..") {
-                self::scanDir($path, $results);
+            } else if($value != "." && $value != ".." && $value != "vendor") {
+                self::scanEnv($path, $results);
                 $results[] = $path;
             }
         }
 
-        return new self($results);
-    }
-
-    public function scanEnv()
-    {
-        return Arrays::filter($this->files);
+        return Arrays::filter($results);
     }
 }

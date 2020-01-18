@@ -8,7 +8,7 @@ Loads environment variables
 
 # Usage
 
-You can then load all files `.env` in your home directory with:
+You can load all files `.env` in your home directory with:
 
 ```
 use Artenv\Artenv;
@@ -17,7 +17,7 @@ $artenv = Artenv::createInstance();
 $artenv->load();
 ```
 
-Optionally you can pass the path to the file as the first parameter, if you would like to use specific `.env` file
+Optionally you can pass the path to the file as the first parameter, if you would like to use specific path to `.env` file
 
 ```
 use Artenv\Artenv;

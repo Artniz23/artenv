@@ -31,7 +31,7 @@ Also you can pass the filename as the second parameter, if you would like to use
 ```
 use Artenv\Artenv;
 
-$artenv = Artenv::createInstance(__DIR__, 'myenv'); 
+$artenv = Artenv::createInstance(__DIR__, ['myenv']); 
 $artenv->load();
 ```
 
